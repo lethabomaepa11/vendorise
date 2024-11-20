@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { categories } from "@/app/lib/dummy/data";
 import Link from "next/link";
 import { Card, CardSection } from "@mantine/core";
@@ -24,15 +24,16 @@ const fastLinks = [{
 export default function Home() {
   console.log(categories)
   return (
-    <div className="p-5">
+    <div className="space-y-5">
       <h2 className="text-xl font-bold">Categories</h2>
       <div className="flex gap-5 w-full overflow-auto">
         {categories.map((category, index) => {
           return <Link className="bg-teal-300 p-5 rounded-lg" href={`/category/${category}`} key={index}>{category}</Link>;
         })}
       </div>
-      <h2 className="text-xl font-bold">Explore</h2>
-      <ProductList/>
+      <Suspense>
+        <ProductList/>
+      </Suspense>
 
       <div className="flex gap-5">
         {fastLinks.map((link,index) => {

@@ -25,14 +25,14 @@ export class transaction{
 }
 export class product{
     //the product placed by the seller, bought by the buyer
-    constructor(description,image,price,category){
-        this.description = description;
+    constructor(title,image,price,category){
+        this.title = title;
         this.image =image;
         this.price = price;
         this.category = category;
     }
     id
-    description
+    title
     image
     price
     seller_id
@@ -64,6 +64,11 @@ export class ordered_product{
     id
     order_id
     product_id
+}
+export class cart{
+    //array
+    items
+    total_amount
 }
 
 /**How the process is

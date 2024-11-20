@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
 import Header from "@/app/components/Header";
+import CartProvider from "@/app/hooks/CartContext";
 import { ColorSchemeScript, createTheme, MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
+import { Suspense } from "react";
+import Image from "next/image";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,6 +41,18 @@ const theme = createTheme({
         radius: "md",
       },
     },
+    FileInput: {
+      defaultProps: {
+        size: "lg",
+        radius: "md",
+      },
+    },
+    TextArea: {
+      defaultProps: {
+        size: "lg",
+        radius: "md",
+      },
+    },
     TextInput: {
       defaultProps: {
         size: "lg",
@@ -55,6 +72,12 @@ const theme = createTheme({
       },
     },
     NumberInput: {
+      defaultProps: {
+        size: "lg",
+        radius: "md",
+      },
+    },
+    Notification: {
       defaultProps: {
         size: "lg",
         radius: "md",
@@ -83,9 +106,25 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <MantineProvider theme={theme}>
-          <Header />
-          <div className="mt-[80px]"></div>
-          {children}
+          <Notifications />
+          <CartProvider>
+            <Suspense
+              fallback={
+                <div className="w-screen h-screen flex justify-center items-center">
+                  <Image
+                    src="/logo.png"
+                    width={300}
+                    height={300}
+                    alt="logo"
+                    className="animate-bounce"
+                  />
+                </div>
+              }
+            >
+              <Header />
+              <div className="mt-[80px] p-2 lg:p-5">{children}</div>
+            </Suspense>
+          </CartProvider>
         </MantineProvider>
       </body>
     </html>
