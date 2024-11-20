@@ -1,14 +1,15 @@
 export class user {
     //the user can be a buyer or a seller
-    id
-    name
-    surname
-    email
-    password
-    phone
-    age
-    gender
-    citizenship
+    constructor(name,surname,email,password,phone,age,gender){
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.age = age;
+        this.gender = gender
+        this.id = Math.random().toString(36).substring(2,15);
+    }
 }
 export class user_wallet{
     //both the buyer and seller have wallets
@@ -24,12 +25,19 @@ export class transaction{
 }
 export class product{
     //the product placed by the seller, bought by the buyer
+    constructor(description,image,price,category){
+        this.description = description;
+        this.image =image;
+        this.price = price;
+        this.category = category;
+    }
     id
     description
     image
     price
     seller_id
     datePlaced
+    category
 }
 export class product_review{
     //a product review

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import "@mantine/core/styles.css";
+import Header from "@/app/components/Header";
+import { ColorSchemeScript, createTheme, MantineProvider } from "@mantine/core";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,18 +20,73 @@ export const metadata: Metadata = {
   title: "Vendorise",
   description: "The ultimate MarketPlace",
 };
-
+const theme = createTheme({
+  primaryColor: "teal",
+  components: {
+    Button: {
+      defaultProps: {
+        size: "lg",
+        radius: "md",
+        fullWidth: true,
+      },
+    },
+    Input: {
+      defaultProps: {
+        size: "lg",
+        radius: "md",
+      },
+    },
+    TextInput: {
+      defaultProps: {
+        size: "lg",
+        radius: "md",
+      },
+    },
+    PasswordInput: {
+      defaultProps: {
+        size: "lg",
+        radius: "md",
+      },
+    },
+    NativeSelect: {
+      defaultProps: {
+        size: "lg",
+        radius: "md",
+      },
+    },
+    NumberInput: {
+      defaultProps: {
+        size: "lg",
+        radius: "md",
+      },
+    },
+    Card: {
+      defaultProps: {
+        padding: "lg",
+        radius: "md",
+        shadow: "sm",
+      },
+    },
+  },
+});
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ColorSchemeScript />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <MantineProvider theme={theme}>
+          <Header />
+          <div className="mt-[80px]"></div>
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );
