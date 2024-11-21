@@ -5,6 +5,7 @@ import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
 import Header from "@/app/components/Header";
 import CartProvider from "@/app/hooks/CartContext";
+import AuthProvider from "@/app/hooks/AuthContext";
 import { ColorSchemeScript, createTheme, MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { Suspense } from "react";
@@ -107,24 +108,26 @@ export default function RootLayout({
       >
         <MantineProvider theme={theme}>
           <Notifications />
-          <CartProvider>
-            <Suspense
-              fallback={
-                <div className="w-screen h-screen flex justify-center items-center">
-                  <Image
-                    src="/logo.png"
-                    width={300}
-                    height={300}
-                    alt="logo"
-                    className="animate-bounce"
-                  />
-                </div>
-              }
-            >
-              <Header />
-              <div className="mt-[80px] p-2 lg:p-5">{children}</div>
-            </Suspense>
-          </CartProvider>
+          <AuthProvider>
+            <CartProvider>
+              <Suspense
+                fallback={
+                  <div className="w-screen h-screen flex justify-center items-center">
+                    <Image
+                      src="/logo.png"
+                      width={300}
+                      height={300}
+                      alt="logo"
+                      className="animate-bounce"
+                    />
+                  </div>
+                }
+              >
+                <Header />
+                <div className="mt-[80px] p-2 lg:p-5">{children}</div>
+              </Suspense>
+            </CartProvider>
+          </AuthProvider>
         </MantineProvider>
       </body>
     </html>

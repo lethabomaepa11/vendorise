@@ -8,9 +8,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../hooks/CartContext'
 import { useDisclosure } from '@mantine/hooks'
 import { categories } from '../lib/dummy/data'
+import { AuthContext } from '../hooks/AuthContext'
+import Login from '../(auth)/login/page'
 
 const Header = () => {
-    const [loggedIn, setLoggedIn] = useState(true);
+    const {isLoggedIn} = useContext(AuthContext);
     const pathname = usePathname();
     const [opened,{open,close}] = useDisclosure();
     const authPaths = ["/login","/signup"];
@@ -39,9 +41,9 @@ const Header = () => {
         </Link>
         
         {
-            loggedIn ? <Link href="/user/lethabo" className='flex flex-col justify-center items-center'><PersonOutline/>Me</Link> 
+            isLoggedIn ? <Link href="/user/lethabo" className='flex flex-col justify-center items-center'><PersonOutline/>Me</Link> 
             : 
-            <Link href="/login"><LoginOutlined/>Login</Link>
+            <div onClick={open}><LoginOutlined/>Login</div>
         }
         
         
@@ -50,15 +52,17 @@ const Header = () => {
         
       </div>
 
-      <Modal opened={opened} onClose={close} title={<h2 className='text-xl font-bold'>Sell Products</h2>}>
-        <form className='space-y-3'>
+      <Modal opened={opened} onClose={close} title={<p className='text-xl font-bold'>{isLoggedIn ? "Sell Products" : "Login"}</p>}>
+        {isLoggedIn ?<form className='space-y-3'>
           <TextInput name="title" label="Title"/>
           <NumberInput leftSection={<p className='text-lg font-bold'>R</p>} name='price' label="Price"/>
           <NativeSelect name="category" data={categories} label="Category"/>
           <FileInput placeholder="No files selected" leftSection={<UploadFileOutlined/>} name="images" accept='image/jpeg,image/png,image' multiple label="Upload Images"/>
           <Textarea label="Description" placeholder='Describe your product'/>
           <Button>Publish product</Button>
-        </form>
+        </form> :
+        <Login pathname={pathname}/>
+}
       </Modal>
       
     </div>
