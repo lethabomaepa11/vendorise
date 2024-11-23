@@ -6,7 +6,13 @@ import "@mantine/notifications/styles.css";
 import Header from "@/app/components/Header";
 import CartProvider from "@/app/hooks/CartContext";
 import AuthProvider from "@/app/hooks/AuthContext";
-import { ColorSchemeScript, createTheme, MantineProvider } from "@mantine/core";
+import LoadingUI from "@/app/components/LoadingUI";
+import {
+  ColorSchemeScript,
+  createTheme,
+  LoadingOverlay,
+  MantineProvider,
+} from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { Suspense } from "react";
 import Image from "next/image";
@@ -112,15 +118,11 @@ export default function RootLayout({
             <CartProvider>
               <Suspense
                 fallback={
-                  <div className="w-screen h-screen flex justify-center items-center">
-                    <Image
-                      src="/logo.png"
-                      width={300}
-                      height={300}
-                      alt="logo"
-                      className="animate-bounce"
-                    />
-                  </div>
+                  <LoadingOverlay
+                    visible
+                    zIndex={1000}
+                    loaderProps={{ children: <LoadingUI /> }}
+                  />
                 }
               >
                 <Header />

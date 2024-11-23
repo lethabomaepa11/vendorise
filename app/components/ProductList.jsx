@@ -3,9 +3,26 @@ import { Button, Card, CardSection, Divider, Skeleton } from '@mantine/core'
 import { AddShoppingCartRounded, ArrowDropDownOutlined, CheckOutlined, FavoriteOutlined, Filter1Outlined, FilterOutlined, SortOutlined, TuneOutlined } from '@mui/icons-material'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { product } from '../lib/dummy/data'
 const LoadingProducts = () => {
+
+  useEffect( () => {
+    const handleScroll = () => {
+      const scroll = window.scrollY;
+      if(scroll > 0){
+        //scrolled down
+        const sticky = document.getElementById("sticky");
+        sticky.style.position = "fixed";
+        sticky.style.top = "0";
+        console.log(scroll)
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll",handleScroll)
+    }
+  },[])
   return(
     <>
     
@@ -29,13 +46,13 @@ const ProductList = () => {
     <div className='flex'>
       
       <div className='space-y-5'>
-        <span className='flex justify-between items-center sticky top-0 z-30'>
+        <span id="sticky" className='flex justify-between items-center sticky top-0 z-30'>
           <h2 className="text-xl font-bold">Explore</h2>
           <Button size='sm' color='dark' variant='subtle' fullWidth={false} rightSection={<ArrowDropDownOutlined/>}>Category</Button>
           <Button size='sm' color='dark' variant='outline' fullWidth={false} leftSection={<TuneOutlined/>}>Sort / Filter</Button>
         </span>
         <Divider/>
-      <div className='w-full  grid grid-cols-2 lg:grid-cols-4 gap-3 mb-10 justify-center items-center overflow-auto max-h-screen'>
+      <div className='w-full  grid grid-cols-2 lg:grid-cols-4 gap-3 mb-10 justify-center items-center overflow-auto '>
         <Suspense fallback={<LoadingProducts/>}>
         {array.map((index) => {
               return <Card key={index}>

@@ -1,6 +1,6 @@
 "use client"
 import { Button, FileInput, Indicator, Modal, NativeSelect, NumberInput, Textarea, TextInput } from '@mantine/core'
-import { AddCircle, AddCircleOutline, LoginOutlined, PersonOutline, SearchOutlined, ShoppingBag, ShoppingCartOutlined, UploadFileOutlined, VerifiedUserOutlined } from '@mui/icons-material'
+import { AddCircle, AddCircleOutline, HomeOutlined, LoginOutlined, PersonOutline, SearchOutlined, ShoppingBag, ShoppingCartOutlined, UploadFileOutlined, VerifiedUserOutlined } from '@mui/icons-material'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -28,22 +28,23 @@ const Header = () => {
   return (
     <div className='flex z-50 top-0 fixed bg-white/90 w-screen shadow h-[80px] items-center px-3 backdrop-blur justify-between'>
       <Link href="/"><Image className='h-[70px] w-[140px]' src="/logo.png" width={1000} height={1000} alt='logo'/></Link>
-      <div className='flex space-x-5 items-center w-2/3 mr-5'>
+      <div className='flex space-x-5 items-end w-2/3 mr-5'>
         <form className='w-full hidden mr-10 lg:inline'> 
             <TextInput leftSection={<SearchOutlined/>} size='lg' placeholder='Search products, categories or people'/>
         </form>
-        <div className='lg:hidden'><SearchOutlined/>Search</div>
-        <div onClick={open}><AddCircleOutline/>Sell</div>
+        <Link href="/" className='flex justify-center items-center flex-col'><HomeOutlined /><p>Home</p></Link>
+        <div className='lg:hidden'><SearchOutlined/><p>Search</p></div>
+        <div onClick={open}><AddCircleOutline/><p>Sell</p></div>
         <Link href="/cart">
             <Indicator size={20} label={cartItems}>
                 <ShoppingCartOutlined/>
-            </Indicator>Cart
+            </Indicator><p>Cart</p>
         </Link>
         
         {
-            isLoggedIn ? <Link href="/user/lethabo" className='flex flex-col justify-center items-center'><PersonOutline/>Me</Link> 
+            isLoggedIn ? <Link href="/profile" className='flex flex-col justify-center items-center'><PersonOutline/><p>Me</p></Link> 
             : 
-            <div onClick={open}><LoginOutlined/>Login</div>
+            <div onClick={open}><LoginOutlined/><p>Login</p></div>
         }
         
         
