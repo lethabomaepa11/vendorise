@@ -20,3 +20,17 @@ body {
   background-color: #f3f4f6;
   font-family: Arial, Helvetica, sans-serif;
 }
+* {
+  @apply box-border transition-all duration-200 ease-in-out; /* Use box model consistently */
+  font-family: var(--body-font);
+  font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--headings-font);
+  font-weight: 600;
+}

@@ -12,6 +12,7 @@ const AuthProvider = ({children}) => {
   return (
     <AuthContext.Provider value={{isLoggedIn,setIsLoggedIn}}>
         {(isLoggedIn && authPaths.includes(pathname)) ? router.replace("/") : children}
+        {(!isLoggedIn && pathname == "/profile") && router.replace("/login")}
     </AuthContext.Provider>
   )
 }

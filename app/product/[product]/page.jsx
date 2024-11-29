@@ -11,7 +11,7 @@ import { Button, Card, Divider, Spoiler } from '@mantine/core';
 const Product = () => {
     
   return (
-    <div className=''>
+    <div className='-mt-[70px]'>
       <BackButton className="lg:hidden"/>
       <div className='flex -mt-3 flex-1 flex-col lg:flex-row justify-around'>
         <Image className='w-full lg:w-2/5' src={product.image} alt={product.title} width={300} height={300}/>

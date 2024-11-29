@@ -7,6 +7,7 @@ import Header from "@/app/components/Header";
 import CartProvider from "@/app/hooks/CartContext";
 import AuthProvider from "@/app/hooks/AuthContext";
 import LoadingUI from "@/app/components/LoadingUI";
+import { Open_Sans, Montserrat } from "next/font/google";
 import {
   ColorSchemeScript,
   createTheme,
@@ -78,6 +79,12 @@ const theme = createTheme({
         radius: "md",
       },
     },
+    Autocomplete: {
+      defaultProps: {
+        size: "lg",
+        radius: "md",
+      },
+    },
     NumberInput: {
       defaultProps: {
         size: "lg",
@@ -99,6 +106,15 @@ const theme = createTheme({
     },
   },
 });
+const bodyFont = Open_Sans({
+  subsets: ["latin"],
+  variable: "--body-font",
+});
+
+const headingsFont = Montserrat({
+  subsets: ["latin"],
+  variable: "--headings-font",
+});
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -110,7 +126,7 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${bodyFont.variable} ${headingsFont.variable} antialiased`}
       >
         <MantineProvider theme={theme}>
           <Notifications />
@@ -126,7 +142,7 @@ export default function RootLayout({
                 }
               >
                 <Header />
-                <div className="mt-[80px] p-2 lg:p-5">{children}</div>
+                <div className="mt-[150px] p-2 lg:p-5">{children}</div>
               </Suspense>
             </CartProvider>
           </AuthProvider>

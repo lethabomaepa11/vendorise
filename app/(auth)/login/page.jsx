@@ -5,8 +5,8 @@ import React from 'react'
 
 const Login = ({pathname}) => {
   return (
-    <div className='flex justify-center p-5'>
-      <form className={`w-full space-y-3 ${(pathname != "/" && pathname != "/cart") && "lg:w-2/5"}`}>
+    <div className='flex justify-center p-5 '>
+      <form className={`w-full space-y-3 ${(pathname != "/" && pathname != "/cart") && "lg:w-2/5 -mt-[70px]"}`}>
       {pathname == "/login" && <h1 className='text-2xl font-bold text-left'>Login to Vendorise</h1>}
 
           <TextInput type='email' label="Email" placeholder='example@email.com'/>

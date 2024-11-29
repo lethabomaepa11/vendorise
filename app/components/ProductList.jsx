@@ -48,14 +48,12 @@ const ProductList = () => {
       <div className='space-y-5'>
         <span id="sticky" className='flex justify-between items-center sticky top-0 z-30'>
           <h2 className="text-xl font-bold">Explore</h2>
-          <Button size='sm' color='dark' variant='subtle' fullWidth={false} rightSection={<ArrowDropDownOutlined/>}>Category</Button>
-          <Button size='sm' color='dark' variant='outline' fullWidth={false} leftSection={<TuneOutlined/>}>Sort / Filter</Button>
         </span>
         <Divider/>
       <div className='w-full  grid grid-cols-2 lg:grid-cols-4 gap-3 mb-10 justify-center items-center overflow-auto '>
         <Suspense fallback={<LoadingProducts/>}>
         {array.map((index) => {
-              return <Card key={index}>
+              return <Card key={index} className='hover:scale-95 hover:border-b-2 hover:border-teal-600 transition-all'>
                   <Link href="/product/lll">
                   <CardSection>
                       <Image className='w-full' src={product.image} alt={index} width={1000} height={1000}/>

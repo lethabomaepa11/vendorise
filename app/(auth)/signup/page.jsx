@@ -5,7 +5,7 @@ import React from 'react'
 
 const Signup = () => {
   return (
-    <div className='flex justify-center items-center px-5 flex-col -mt-10'>
+    <div className='flex justify-center items-center px-5 flex-col -mt-70'>
       <form className='w-full lg:w-2/5 space-y-3'>
           <div className='flex flex-col lg:flex-row gap-5 w-full justify-between'>
             <TextInput name='name' id='name' label="Name" placeholder='John'/>
