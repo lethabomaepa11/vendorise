@@ -1,9 +1,11 @@
-
+"use client"
 import { Button,  PasswordInput, TextInput } from '@mantine/core'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 
-const Login = ({pathname}) => {
+const Login = () => {
+  const pathname = usePathname();
   return (
     <div className='flex justify-center p-5 '>
       <form className={`w-full space-y-3 ${(pathname != "/" && pathname != "/cart") && "lg:w-2/5 -mt-[70px]"}`}>
