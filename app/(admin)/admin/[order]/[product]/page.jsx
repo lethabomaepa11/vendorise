@@ -3,7 +3,7 @@ import { Button, Card, Divider, NativeSelect, Spoiler } from '@mantine/core'
 import Image from 'next/image'
 import React from 'react'
 
-const AdminOrderProductPage = ({params}) => {
+const AdminOrderProductPage = () => {
     const statuses = ["Not yet received","Bad condition","Good condition"]
   return (
     <div className='flex -mt-3 flex-1 flex-col lg:flex-row justify-around'>

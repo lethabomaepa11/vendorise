@@ -5,8 +5,8 @@ export default function manifest() {
       description: "Your ultimate e-commerce vendor marketplace",
       start_url: '/',
       display: 'standalone',
-      background_color: '#ffffff',
-      theme_color: '#880808',
+      background_color: '#004c4c',
+      theme_color: '#004c4c',
       icons: [
         {
           src: '/icon.ico',

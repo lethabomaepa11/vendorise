@@ -1,6 +1,5 @@
 "use client"
-import { Button, Card, CardSection, Divider, Skeleton } from '@mantine/core'
-import { AddShoppingCartRounded, ArrowDropDownOutlined, CheckOutlined, FavoriteOutlined, Filter1Outlined, FilterOutlined, SortOutlined, TuneOutlined } from '@mui/icons-material'
+import {  Card, CardSection, Divider, Skeleton } from '@mantine/core'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { Suspense, useEffect } from 'react'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { product } from "@/app/lib/dummy/data";
-import { AddShoppingCartOutlined, ArrowBackIosNewOutlined, CheckOutlined, FavoriteBorderOutlined, FavoriteOutlined } from '@mui/icons-material';
+import { FavoriteBorderOutlined } from '@mui/icons-material';
 import BackButton from "@/app/components/BackButton"
 import AddToCartBtn from "@/app/components/AddToCartBtn"
 import Image from 'next/image';

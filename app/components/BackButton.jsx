@@ -1,6 +1,6 @@
 "use client"
 import { Button } from '@mantine/core';
-import { ArrowBackIosNewOutlined, ArrowBackOutlined } from '@mui/icons-material';
+import { ArrowBackIosNewOutlined } from '@mui/icons-material';
 import { useRouter } from 'next/navigation'
 import React from 'react'
 

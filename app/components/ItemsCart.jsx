@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
 import {product} from "../lib/dummy/data"
-import { Autocomplete, Button, Card, Divider } from '@mantine/core'
-import { CollectionsOutlined, DeleteOutline, DeliveryDiningOutlined, RemoveShoppingCartOutlined } from '@mui/icons-material'
+import {  Button, Divider } from '@mantine/core'
+import { DeleteOutline } from '@mui/icons-material'
 import Link from 'next/link'
 import CheckOutForm from "@/app/components/CheckOutForm"
 

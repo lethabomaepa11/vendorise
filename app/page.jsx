@@ -1,9 +1,9 @@
 import React, { Suspense } from "react";
 import { categories } from "@/app/lib/dummy/data";
 import Link from "next/link";
-import { Card, CardSection } from "@mantine/core";
+import { Card } from "@mantine/core";
 import ProductList from "@/app/components/ProductList"
-import { LocationOnOutlined, LocationSearchingOutlined, QuestionMark } from "@mui/icons-material";
+import { LocationOnOutlined, QuestionMark } from "@mui/icons-material";
 const fastLinks = [{
   url: "/faq",
   text: "FAQ",

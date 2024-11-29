@@ -1,10 +1,10 @@
 "use client"
 import { Button, FileInput, Indicator, Modal, NativeSelect, NumberInput, Textarea, TextInput } from '@mantine/core'
-import { AddCircle, AddCircleOutline, HomeOutlined, LoginOutlined, PersonOutline, SearchOutlined, ShoppingBag, ShoppingCartOutlined, UploadFileOutlined, VerifiedUserOutlined } from '@mui/icons-material'
+import { AddCircleOutline, HomeOutlined, LoginOutlined, PersonOutline, SearchOutlined,  ShoppingCartOutlined, UploadFileOutlined } from '@mui/icons-material'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect} from 'react'
 import { CartContext } from '../hooks/CartContext'
 import { useDisclosure } from '@mantine/hooks'
 import { categories } from '../lib/dummy/data'

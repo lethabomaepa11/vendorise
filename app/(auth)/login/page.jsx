@@ -1,5 +1,5 @@
 
-import { Button, Card, PasswordInput, TextInput } from '@mantine/core'
+import { Button,  PasswordInput, TextInput } from '@mantine/core'
 import Link from 'next/link'
 import React from 'react'
 

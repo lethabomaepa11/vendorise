@@ -1,7 +1,6 @@
 "use client"
 
-import React, { Suspense, useContext, useEffect, useState } from 'react'
-import CartContext from "../hooks/CartContext"
+import React, {  useEffect, useState } from 'react'
 import Link from 'next/link';
 import { Anchor } from '@mantine/core';
 import LoadingUI from './LoadingUI';

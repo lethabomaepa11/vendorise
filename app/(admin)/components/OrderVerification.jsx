@@ -1,16 +1,12 @@
 "use client"
-import { product } from '@/app/lib/dummy/data';
 import { Autocomplete, Button, Divider } from '@mantine/core'
 import { useForm } from '@mantine/form';
-import { CancelOutlined, CheckOutlined, DeleteOutline } from '@mui/icons-material';
-import Image from 'next/image';
-import Link from 'next/link';
+
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
+import React from 'react'
 
 const OrderVerification = () => {
     const data = ["gpJN12","LmhK98","jkLMn03","qyKh87","hYYw88"];
-    const [showOrder, setShowOrder] = useState(false);
     const router = useRouter();
     const form = useForm({
         validate: {

@@ -1,6 +1,6 @@
 "use client"
-import { Button, Divider, Tabs, TabsList, TabsPanel, TabsTab } from '@mantine/core'
-import { AttachMoneyOutlined, ChevronRightOutlined, PersonOutlineOutlined, ProductionQuantityLimitsOutlined, ShoppingCartCheckoutOutlined, TrackChangesOutlined, WalletSharp } from '@mui/icons-material'
+import {  Divider, Tabs, TabsList, TabsPanel, TabsTab } from '@mantine/core'
+import {  ChevronRightOutlined, PersonOutlineOutlined, ProductionQuantityLimitsOutlined, ShoppingCartCheckoutOutlined, WalletSharp } from '@mui/icons-material'
 import Link from 'next/link'
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../hooks/AuthContext'

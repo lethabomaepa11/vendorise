@@ -1,6 +1,5 @@
 import { product } from '@/app/lib/dummy/data'
-import { Button, Divider, NativeSelect, TextInput } from '@mantine/core'
-import { CancelOutlined, CheckOutlined } from '@mui/icons-material'
+import { Divider } from '@mantine/core'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -10,7 +9,6 @@ const AdminOrderVerifyPage = ({params}) => {
     for(let i = 0; i < 30; i++){
         array.push(i);
     }
-    const statuses = ["Not in good quality","Not received","Product is satisfactory"]
     const orderNo = params.order;
   return (
     <div className='my-5 space-y-2 flex flex-col justify-center items-center'>
